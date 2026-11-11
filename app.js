@@ -429,7 +429,6 @@ function rotear() {
   });
   fechaMenu();
   window.scrollTo(0, 0);
-  document.title = `${rota[0].toUpperCase() + rota.slice(1)} · Adoção de gatinhos`;
   if (rota === 'inicio') contadores();
   if (rota === 'gatinhos') iniciaListagem();
   if (rota === 'voluntariar' || rota === 'adotar') iniciaForm();
