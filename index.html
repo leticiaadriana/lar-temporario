@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Adoção de gatinhos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Fredoka:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#conteudo">Ir para o conteúdo</a>
+
+  <header class="nav">
+    <a href="#inicio" class="nav__logo" aria-label="Página inicial"><img src="assets/logo_icon.svg" alt="" onerror="this.replaceWith('🐱')"></a>
+    <button class="nav__toggle" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+    <nav id="menu" class="nav__links" aria-label="Principal">
+      <a href="#inicio" data-rota="inicio">Página Inicial</a>
+      <a href="#gatinhos" data-rota="gatinhos">Gatinhos</a>
+      <a href="#adotar" data-rota="adotar">Adotar</a>
+      <a href="#doar" data-rota="doar">Doar</a>
+      <a href="#voluntariar" data-rota="voluntariar">Voluntariar</a>
+      <a href="#ongs" data-rota="ongs">Outras ONG’s</a>
+      <a href="#sobre" data-rota="sobre">Sobre</a>
+    </nav>
+  </header>
+
+  <main id="conteudo" tabindex="-1"></main>
+
+  <footer class="footer">
+    <h2 class="footer__titulo">Contato e informações:</h2>
+    <div class="footer__info">
+      <div class="footer__col">
+        <p><a href="mailto:contato@lartemporario.com">contato@lartemporario.com</a></p>
+        <p><a href="tel:+5515996952586">(15) 99695-2586</a></p>
+      </div>
+      <div class="footer__div" aria-hidden="true"></div>
+      <div class="footer__col">
+        <p>Rua Sólon Borges dos Reis, Nº 251</p>
+        <p>Segunda a Sábado, 9h às 16h</p>
+      </div>
+    </div>
+    <p class="footer__copy">© 2025 - Projeto Lar Temporário</p>
+  </footer>
+
+  <div class="modal" id="modal" hidden>
+    <div class="modal__card" role="dialog" aria-modal="true" aria-labelledby="m-nome">
+      <button class="modal__close" aria-label="Fechar">
+        <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></svg>
+      </button>
+      <div class="modal__galeria">
+        <img id="m-foto" class="modal__foto" alt="">
+        <div id="m-thumbs" class="modal__thumbs" role="group" aria-label="Mais fotos"></div>
+      </div>
+      <div class="modal__info">
+        <h2 id="m-nome"></h2>
+        <h3>Informações:</h3>
+        <ul id="m-tags" class="tags"></ul>
+        <h3>Descrição:</h3>
+        <p id="m-desc"></p>
+        <a id="m-adote" class="btn" href="#adotar">Me adote!</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="modal-admin" hidden>
+    <div class="modal__card" role="dialog" aria-modal="true" aria-label="Editar gatinho">
+      <button class="modal__close" aria-label="Fechar">
+        <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></svg>
+      </button>
+      <div class="modal__galeria">
+        <img id="a-foto" class="modal__foto" alt="">
+        <div id="a-vazio" class="vazio-foto" hidden>Ainda sem fotos. Use o + para adicionar.</div>
+        <div id="a-thumbs" class="modal__thumbs" role="group" aria-label="Fotos do gatinho"></div>
+        <button type="button" id="a-rem" class="rem-foto">Remover esta foto</button>
+        <input type="file" id="a-file" accept="image/*" hidden>
+      </div>
+      <div class="modal__info">
+        <label class="sr" for="a-nome">Nome</label>
+        <input id="a-nome" class="edit edit--nome" placeholder="Nome do gatinho" maxlength="30" autocomplete="off">
+        <h3>Informações:</h3>
+        <ul class="tags">
+          <li class="tag-edit"><label class="sr" for="a-sexo">Sexo</label>
+            <select id="a-sexo" class="tag-ctl"><option>Macho</option><option>Fêmea</option></select></li>
+          <li class="tag-edit"><label class="sr" for="a-idade">Idade em meses</label>
+            <input id="a-idade" class="tag-ctl tag-num" type="number" min="0" max="300" inputmode="numeric"><span aria-hidden="true">meses</span></li>
+        </ul>
+        <label for="a-desc"><h3>Descrição:</h3></label>
+        <textarea id="a-desc" class="edit" rows="4" maxlength="400"></textarea>
+        <p id="a-erro" class="erro" role="alert"></p>
+        <div class="modal__acoes">
+          <button type="button" id="a-salvar" class="btn">Salvar alterações</button>
+          <button type="button" id="a-apagar" class="btn btn--apagar">Apagar Registro</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
